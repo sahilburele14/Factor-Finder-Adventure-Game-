@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factor Finder Adventure - Learn HCF</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Start Screen -->
+    <div id="startScreen" class="start-screen">
+      <div class="header">
+        <h1>🎮 Factor Finder Adventure</h1>
+        <p>Learn HCF (Highest Common Factor) by playing!</p>
+      </div>
+
+      <div class="tutorial">
+        <h3>📚 What is HCF?</h3>
+        <p><strong>HCF (Highest Common Factor)</strong> is the largest number that divides both numbers perfectly!</p>
+        <br />
+        <h4>How to play:</h4>
+        <ul>
+          <li>🎯 You'll see two numbers</li>
+          <li>🔍 Find all factors of both numbers</li>
+          <li>⭐ Identify common factors</li>
+          <li>🏆 Find the HIGHEST common factor!</li>
+          <li>💯 Answer correctly to score points</li>
+        </ul>
+      </div>
+
+      <h3>Choose Difficulty:</h3>
+      <div class="difficulty-selector">
+        <button class="difficulty-btn" onclick="startGame('easy')">😊 Easy<br />(Numbers 1–20)</button>
+        <button class="difficulty-btn" onclick="startGame('medium')">🤔 Medium<br />(Numbers 1–50)</button>
+        <button class="difficulty-btn" onclick="startGame('hard')">🔥 Hard<br />(Numbers 1–100)</button>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="hidden">
+      <div class="header">
+        <h1>🎮 Factor Finder Adventure</h1>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-value" id="score">0</div>
+          <div class="stat-label">Score</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="level">1</div>
+          <div class="stat-label">Level</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="streak">0</div>
+          <div class="stat-label">Streak 🔥</div>
+        </div>
+      </div>
+
+      <div class="game-area">
+        <div class="question-section">
+          <h2>Find the HCF of:</h2>
+          <div class="numbers-display">
+            <div class="number-box" id="num1">12</div>
+            <div class="number-box" id="num2">18</div>
+          </div>
+        </div>
+
+        <div class="factors-section" id="factorsSection">
+          <div class="factor-column">
+            <h3>Factors of <span id="factorNum1">12</span></h3>
+            <div class="factors-list" id="factors1"></div>
+          </div>
+          <div class="factor-column">
+            <h3>Factors of <span id="factorNum2">18</span></h3>
+            <div class="factors-list" id="factors2"></div>
+          </div>
+        </div>
+
+        <div class="answer-section">
+          <h3>What is the HCF?</h3>
+          <input type="number" id="answerInput" class="answer-input" placeholder="?" />
+          <br />
+          <button class="btn" onclick="checkAnswer()">Submit Answer</button>
+          <button class="btn btn-secondary" onclick="showHint()">💡 Show Hint</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+
+        <div id="explanation" class="explanation hidden">
+          <h4>📖 Explanation:</h4>
+          <p id="explanationText"></p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="btn btn-secondary" onclick="nextQuestion()">Next Question ➡</button>
+      </div>
+    </div>
+
+    <!-- End Screen -->
+    <div id="endScreen" class="end-screen hidden">
+      <div class="trophy">🏆</div>
+      <h2>Congratulations!</h2>
+      <h3>Final Score: <span id="finalScore">0</span></h3>
+      <p style="font-size: 1.2em; margin: 20px 0;">You completed 10 questions!</p>
+      <button class="btn" onclick="location.reload()">Play Again 🔄</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
